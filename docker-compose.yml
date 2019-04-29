@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+ redis:
+  image: redis:latest
+  deploy:
+   replicas: 1
+  secrets:
+   - DREAMHOST_API_KEY
+   - DOMAIN
+   - RECORD_TYPE
+   - RECORD_TO_UPDATE
+secrets:
+
+ DOMAIN:
+  external: true
+
+ DREAMHOST_API_KEY:
+  external: true
+
+ RECORD_TYPE:
+  external: true
+
+ RECORD_TO_UPDATE:
+  external: true
