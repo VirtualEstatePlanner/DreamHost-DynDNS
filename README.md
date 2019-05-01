@@ -1,5 +1,6 @@
 <h1>Dynamic DNS for Dreamhost in a docker container</h1>
 <h2>Requirements</h2>
+
 In order to use this docker image, you will need the following `docker secrets` defined and available to your container:
 
 - DREAMHOST_API_KEY
