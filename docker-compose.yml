@@ -9,10 +9,8 @@ services:
    - DREAMHOST_API_KEY
    - RECORD_TYPE
    - RECORD_TO_UPDATE
-secrets:
 
- DOMAIN:
-  external: true
+secrets:
 
  DREAMHOST_API_KEY:
   external: true
