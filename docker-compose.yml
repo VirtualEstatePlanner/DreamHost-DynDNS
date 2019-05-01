@@ -1,13 +1,12 @@
 version: "3.7"
 
 services:
- redis:
-  image: redis:latest
+ dns:
+  image: georgegeorgulasiv/dreamdns:latest
   deploy:
    replicas: 1
   secrets:
    - DREAMHOST_API_KEY
-   - DOMAIN
    - RECORD_TYPE
    - RECORD_TO_UPDATE
 secrets:

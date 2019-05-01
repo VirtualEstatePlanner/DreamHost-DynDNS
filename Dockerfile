@@ -6,7 +6,7 @@ RUN         apk update && \
 # Upgrade any underlying packages missed by our base image in the name of security best practices
             apk upgrade && \
 # Install our required packages
-            apk add --update bash curl dcron && \
+            apk add --update bash curl dcron util-linux && \
 # Clean up the chaff from apk for smaller final layer size
             rm -rf /var/cache/apk/*
 
@@ -20,7 +20,6 @@ COPY          updatedns.sh /updatedns.sh
 ENV DREAMHOST_API_KEY DOCKER-SECRET->DREAMHOST_API_KEY
 ENV RECORD_TO_UPDATE DOCKER-SECRET->RECORD_TO_UPDATE
 ENV RECORD_TYPE DOCKER-SECRET->RECORD_TYPE
-ENV DOMAIN DOCKER-SECRET->DOMAIN
 
 # Make scripts executable
 RUN         chmod 755 /updatedns.sh && \

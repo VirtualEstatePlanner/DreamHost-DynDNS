@@ -16,26 +16,21 @@ function env_secret_debug() {
 
 function env_secret_expand() {
     var="$1"
-    echo "beginning expansion of ${var}"
     eval val=\$$var
     if secret_name=$(expr match "$val" "DOCKER-SECRET->\([^}]\+\)$"); then
-        echo "${ENV_SECRETS_DIR}/${secret_name}"
-        secret="${ENV_SECRETS_DIR}/${secret_name}"
+        secretpath="${ENV_SECRETS_DIR}/${secret_name}"
         env_secret_debug "Secret file for $var: $secret_name"
-        echo "found secret file for ${secret_name}"
-        if [ -f "$secret" ]; then
-            val=$(cat "${secret_name}")
+        if [ -f "$secretpath" ]; then
+            val=$(cat "${secretpath}")
             export "$var"="$val"
-            echo "exported ${secret_name}"
             env_secret_debug "Expanded variable: $var=$val"
         else
-            env_secret_debug "Secret file does not exist! $secret"
+            env_secret_debug "Secret file does not exist at ${secretpath}!"
         fi
     fi
 }
 
 function env_secrets_expand() {
-    echo "expanding all secrets"
     for env_var in $(env | cut -f1 -d"=")
     do
         env_secret_expand $env_var
