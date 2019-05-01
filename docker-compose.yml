@@ -1,5 +1,4 @@
 version: "3.7"
-
 services:
  dns:
   image: georgegeorgulasiv/dreamdns:latest
@@ -9,14 +8,10 @@ services:
    - DREAMHOST_API_KEY
    - RECORD_TYPE
    - RECORD_TO_UPDATE
-
 secrets:
-
  DREAMHOST_API_KEY:
   external: true
-
  RECORD_TYPE:
   external: true
-
  RECORD_TO_UPDATE:
   external: true
