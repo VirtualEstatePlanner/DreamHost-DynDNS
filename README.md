@@ -11,6 +11,7 @@ You will need the following docker secrets defined and available to this contain
 `printf $SECRET_VALUE | docker secret create SECRET_NAME -`
 
 <h2>You can easily start your Dynamic DNS service with:</h2>
+
 `docker stack deploy -c docker-compose.yml dns`
 
 or
