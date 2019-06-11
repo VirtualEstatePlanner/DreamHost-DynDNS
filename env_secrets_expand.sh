@@ -8,7 +8,6 @@ function env_secret_expand() {
         if [ -f "$secretpath" ]; then
             val=$(cat "${secretpath}")
             export "$var"="$val"
-        else
         fi
     fi
 }
