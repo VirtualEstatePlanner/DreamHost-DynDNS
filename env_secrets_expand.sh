@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 : ${ENV_SECRETS_DIR:=/run/secrets}
 function env_secret_expand() {
     var="$1"
